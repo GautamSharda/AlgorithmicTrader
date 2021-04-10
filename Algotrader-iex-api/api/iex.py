@@ -3,11 +3,12 @@ import os
 import json
 
 token = os.environ.get("apitoken") #enviroment variable to store the api token
-baseurl = "https://sandbox.iexapis.com/" #to quickly switch from sandbox to actual
+baseurl = "https://cloud.iexapis.com/" #to quickly switch from sandbox to actual
 
 
 def get_appl():
-    r = requests.get("https://sandbox.iexapis.com/stable/tops?token="+token+"&symbols=aapl")
+    r = requests.get("https://cloud.iexapis.com/stable/stock/FB/chart/date/20191107?token=sk_666a7e90d070456194a5231a68f9ed5b")
+    print(r.text)
     return r.text
 
 def get_snp():
@@ -18,8 +19,8 @@ def get_snp():
     s = json.load(f) #Load up the json file
     returner = ""
     for p in s:
-        r = requests.get(baseurl+"stable/tops?token="+token+"&symbols="+p["Symbol"])
+        r = requests.get(baseurl+"stable/tops?token="+"sk_666a7e90d070456194a5231a68f9ed5b"+"&symbols="+p["Symbol"])
         print(r.text)
     return returner
 
-get_snp()
+get_appl()
