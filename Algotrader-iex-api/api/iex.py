@@ -7,7 +7,7 @@ baseurl = "https://cloud.iexapis.com/" #to quickly switch from sandbox to actual
 
 
 def get_appl():
-    r = requests.get("https://cloud.iexapis.com/stable/stock/FB/chart/date/20191107?token=sk_666a7e90d070456194a5231a68f9ed5b")
+    r = requests.get("https://cloud.iexapis.com/stable/stock/FB/chart/date/20191107?token=TOKEN")
     print(r.text)
     return r.text
 
